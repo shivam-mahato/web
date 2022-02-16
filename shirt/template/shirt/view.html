@@ -1,0 +1,44 @@
+{% extends "dashboard.html" %}
+{% block content %}
+{% load static %}
+
+<!--Decoration details-->
+<div class="col-lg-6 mt-3 ">
+    <h2 style="margin-left:5px">Shirt</h2>
+    <!-- Search box -->
+   
+    <a href="/shirt/shirtadd">
+        <button class="btn btn-success  mb-2 mt-2 "><i class="fa fa-plus mr-1"></i>Add Preferred Shirt</button>
+    </a>
+    <!-- main sector /table area -->
+
+    <div class="table-responsive-md  table-responsive-sm ">
+        <table class="table table-bordered table-hover table-bordered table-striped"style="width:63em">
+            <thead class="thead bg-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">Actions </th>
+            </tr>
+            </thead>
+            {% for decoration in decorations %}
+            <tr class="tbody">
+                <td>{{decoration.id}}</td>
+                <td>{{decoration.name}}</td>
+                <td>{{decoration.price}}</td>
+                {% load static %}
+                <td>
+                    <img width="100" src="{% static 'images/' %}{{decoration.image}}"/>
+                </td>
+                <th>
+                    <a href="/shirt/shirtedit/{{decoration.id}}" style="color:green">Edit</a>
+                    |
+                    <a href="/shirt/shirtdelete/{{decoration.id}}" style="color:red">delete</a>
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endblock %}

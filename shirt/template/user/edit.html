@@ -1,0 +1,36 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+<form  action="/user/userupdate/{{user.id}}" method="POST" >
+    {% csrf_token %}
+    <!-- user name -->
+    <div class="input-group md-form form-sm ">
+        
+        <div class="input-group-append"   >
+            <span class="icon"><i class="fa fa-user mt-2 p-2"></i></span><b>Username</b>
+            <input  type="text" maxlength="200"  name="username" value="{{user.username}}" id="id_username"
+                   class="form-control mt-2" placeholder="User name" style="width:450px">
+        </div>
+    </div>
+    <!-- email -->
+    <div class="input-group md-form form-sm ">
+        <div class="input-group-append">
+            <span class="icon"><i class="fa fa-envelope mt-2 p-2 "></i></span> <b>Email</b>
+            <input type="email" name="email"  maxlength="200" value="{{user.email}}"
+                   id="id_email" class="form-control mt-2" placeholder="Email Address" style="width:450px">
+        </div>
+    </div>
+    <!-- password -->
+
+  
+
+    <!--Buttons -->
+    <div class="btn-group m-3">
+        <input value="Update" type="submit" class="btn btn-success pl-2 ml-5 " />
+        <a href="/user/index"><button type="button"  class="btn btn-danger ml-3 ">
+            <i class="fa fa-remove mr-1"></i>Cancel</button></a>
+    </div>
+
+</form>
+</div>
+{% endblock %}

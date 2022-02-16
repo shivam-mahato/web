@@ -1,0 +1,44 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+<!-- Decoration heading-->
+<div class="col-lg-8" >
+    <h2 class="mt-2">UPDATE DECORATION DETAILS</h2>
+    <hr />
+<!--    Form for updating decoration-->
+<form  action="/shirt/shirtupdate/{{shirt.id}}" method="POST" >
+    {% csrf_token %}
+<!--    Decoration name-->
+   <div class="input-group md-form form-sm">
+        <div class="input-group-append mt-2" >
+            <label class=" col-lg-6 col-md-4 col-sm-4 required">Decoration Name:</label>
+            <input type="text" name="name" id="name" class="form-control col-lg-10" value="{{shirt.name}}">
+        </div>
+   </div>
+
+<!--    Price-->
+    <div class="input-group md-form form-sm ">
+        <div class="input-group-append mt-2">
+            <label class="col-lg-6 col-md-4 required">Decoration Price:</label>
+            <input type="text" name="price"  id="price"  class="col-lg-10 form-control" value="{{shirt.price}}">
+        </div>
+    </div>
+    <!-- Image-->
+    <div class="input-group md-form form-sm ">
+        <div class="input-group-append mt-3">
+            <label class="col-lg-4 col-md-4 required">Upload Image:</label>
+            <input type="file" name="image"  id="image"  class="form-control col-lg-8"
+                   style="margin-left:30px" value="{{shirt.image}}">
+        </div>
+    </div>
+    <!--Buttons -->
+    <div class="btn-group m-3">
+        <input value="Confirm Update" type="submit"
+               class="btn btn-success" style="margin-left:180px"  />
+        <a href="/decoration/index"><button type="button" class="btn btn-danger ml-3">
+            <i class="fa fa-remove mr-1 "></i>Cancel</button></a>
+    </div>
+
+</form>
+</div>
+{% endblock %}

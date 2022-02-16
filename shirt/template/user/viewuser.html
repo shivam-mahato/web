@@ -1,0 +1,35 @@
+{% extends 'dashboard.html'%}
+{% block content %}
+<div class="col-lg-6 mt-3 ">
+    <h2 style="margin-left:5px">Admin DETAILS</h2>
+<a href="/user/useradd">
+     <button class="btn btn-success mb-2 mt-2 "><i class="fa fa-plus mr-1"></i>Add User</button>
+</a>
+<!-- main sector /table area -->
+ <div class="table-responsive-md  table-responsive-sm" >
+     <table class="table table-bordered table-hover table-bordered table-striped" style="width:100em">
+         <thead class="thead bg-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">User name</th>
+                <th scope="col">Email Address</th>
+               
+                <th scope="col">Actions </th>
+            </tr>
+         </thead>
+         {% for user in users %}
+             <tr class="tbody">
+                 <td>{{user.id}}</td>
+                 <td>{{user.username}}</td>
+                 <td>{{user.email}}</td>
+                 
+                 <th>
+                     <a href="/user/useredit/{{user.id}}" style="color:green">Edit</a>
+                     |
+                     <a href="/user/userdelete/{{user.id}}" style="color:red">Delete</a>
+                 </th>
+             </tr>
+         {% endfor %}
+     </table>
+ </div>
+{% endblock %}

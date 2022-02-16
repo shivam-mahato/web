@@ -1,0 +1,49 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+<form  action="/customerupdate/{{customer.id}}" method="POST" >
+    {% csrf_token %}
+    <div class="input-group md-form form-sm ">
+        <div class="input-group-append"   >
+            <span class="icon"><i class="fa fa-user mt-2 p-2"></i></span>
+            <input type="text" maxlength="200"  name="fullname" value="{{customer.fullname}}" id="fullname"
+                   class="form-control mt-2" placeholder="FullName" style="width:450px">
+        </div>
+    </div>
+    <!-- email -->
+    <div class="input-group md-form form-sm ">
+        <div class="input-group-append">
+            <span class="icon"><i class="fa fa-envelope mt-2 p-2 "></i></span>
+            <input type="email" name="email"  maxlength="200" value="{{customer.email}}"
+                   id="email" class="form-control mt-2" placeholder="Email Address" style="width:450px">
+        </div>
+    </div>
+    <!-- Address -->
+    <div class="input-group md-form form-sm ">
+        <div class="input-group-append">
+            <span class="icon"><i class="fa fa-address-book mt-2 p-2 "></i></span>
+            <input type="text" name="address"  maxlength="200"  value="{{customer.address}}"
+                   id="address" class="form-control mt-2" placeholder="Address" style="width:450px">
+        </div>
+    </div>
+    <!-- Phone number-->
+    <div class="input-group md-form form-sm ">
+        <div class="input-group-append">
+            <span class="icon"><i class="fa fa-phone-square mt-2 p-2 "></i></span>
+            <input type="text"  name="phone"  maxlength="10"  value="{{customer.phone}}"
+                   id="phone" class="form-control mt-2" placeholder="Phone Number" style="width:450px">
+        </div>
+    </div>
+    <div class="message ml-4"></div>
+  
+
+    <!--Buttons -->
+    <div class="btn-group m-3">
+        <input value="Update" type="submit" class="btn btn-success pl-2 ml-5 " />
+        <a href="/user/index"><button type="button"  class="btn btn-danger ml-3 ">
+            <i class="fa fa-remove mr-1"></i>Cancel</button></a>
+    </div>
+
+</form>
+</div>
+{% endblock %}

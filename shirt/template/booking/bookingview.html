@@ -1,0 +1,35 @@
+{% extends "dashboard.html" %}
+{% block content %}
+{% load static %}
+
+<!--Decoration details-->
+<div class="col-lg-6 mt-3 ">
+    <h2 style="margin-left:5px"> all Bookings</h2>
+    <!-- Search box -->
+   
+
+    <!-- main sector /table area -->
+
+    <div class="table-responsive-md  table-responsive-sm ">
+        <table class="table table-bordered table-hover table-bordered table-striped"style="width:63em">
+            <thead class="thead bg-light">
+            <tr>
+                <th scope="col"> Booking ID</th>
+                <th scope="col"> Buyer'sName</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">shirt id </th>
+            </tr>
+            </thead>
+            {% for booking in bookings %}
+            <tr class="tbody">
+                <td>{{booking.booking_id}}</td>
+                <td>{{booking.fullname}}</td>
+                <td>{{booking.email}}</td>
+                <td>{{booking.address}}</td>
+                <td>{{booking.shirtdetails}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endblock %}
